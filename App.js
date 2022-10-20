@@ -19,10 +19,10 @@ const App = () => {
     RNPdftron.enableJavaScript(true);
   }, []);
 
-  // const path =
-  //   'https://wwwimages2.adobe.com/content/dam/acom/en/feature-details/acrobat/axi/pdfs/create-forms-sample.pdf';
   const path =
-    'https://drive.google.com/uc?id=1v2XpLCamAP0FV132WwD30tDZPgEqpV7E&export=download';
+    'https://wwwimages2.adobe.com/content/dam/acom/en/feature-details/acrobat/axi/pdfs/create-forms-sample.pdf';
+  // const path =
+  //   'https://drive.google.com/uc?id=1v2XpLCamAP0FV132WwD30tDZPgEqpV7E&export=download';
   // const path =
   //   'https://www.antennahouse.com/hubfs/xsl-fo-sample/pdf/axf-form-field-1.pdf';
 
