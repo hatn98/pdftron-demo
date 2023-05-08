@@ -11,7 +11,7 @@ PODS:
     - ReactCommon/turbomodule/core (= 0.69.3)
   - fmt (6.2.1)
   - glog (0.3.5)
-  - PDFNet (3.0.2-beta.138)
+  - PDFNet (3.0.3-18)
   - RCT-Folly (2021.06.28.00-v2):
     - boost
     - DoubleConversion
@@ -287,7 +287,7 @@ PODS:
     - React-jsi (= 0.69.3)
     - React-logger (= 0.69.3)
     - React-perflogger (= 0.69.3)
-  - RNPdftron (3.0.2-beta.138):
+  - RNPdftron (3.0.3-20):
     - PDFNet
     - React-Core
   - Yoga (1.14.0)
@@ -410,7 +410,7 @@ SPEC CHECKSUMS:
   FBReactNativeSpec: 626e35e73f83c637ff166f906d584f4c6750c251
   fmt: ff9d55029c625d3757ed641535fd4a75fedc7ce9
   glog: 3d02b25ca00c2d456734d0bcff864cbc62f6ae1a
-  PDFNet: 74e011b6fd0477a291f74a0d3834d8cb60fb9fe7
+  PDFNet: ef5903c003ec68319a880ab1c82c26aa0522e6ae
   RCT-Folly: b9d9fe1fc70114b751c076104e52f3b1b5e5a95a
   RCTRequired: 66822c147facf02f7774af99825e0a31e39df42e
   RCTTypeSafety: 309306c4e711b14a83c55c2816a6cc490ec19827
@@ -437,9 +437,9 @@ SPEC CHECKSUMS:
   React-RCTVibration: dd8099eb46e9cee4692934bc8cbe5e9a4f5e8d31
   React-runtimeexecutor: 607eb048e22a16388c908ee1f6644200e8d1e19b
   ReactCommon: af7636436b382db7cde4583bbd642f0978e6e3ed
-  RNPdftron: 0854aff1c995f61bdd60c265c9490e60f777af34
+  RNPdftron: 3449950d50f25319c26eb518ad816edaddca32a4
   Yoga: 44c64131616253fa83366295acdbce3d14926041
 
-PODFILE CHECKSUM: b72a2a9f46ef1165b4059e72660ef7dd09e7c1cc
+PODFILE CHECKSUM: b8cdddd72c887945b33bbd15504e51b516d25bfb
 
 COCOAPODS: 1.11.3

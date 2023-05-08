@@ -6,25 +6,26 @@
  * @flow strict-local
  */
 
-import React, {useRef} from 'react';
-import {Alert, BackHandler, PermissionsAndroid, Platform} from 'react-native';
+import React, {useRef, useState} from 'react';
+import {
+  Alert,
+  BackHandler,
+  PermissionsAndroid,
+  Platform,
+  Button,
+  SafeAreaView,
+} from 'react-native';
 
 import {DocumentView, RNPdftron} from 'react-native-pdftron';
 
 const App = () => {
   const viewer = useRef(null);
+  const [annotList, setAnnotList] = useState([]);
 
   React.useEffect(() => {
     RNPdftron.initialize('');
     RNPdftron.enableJavaScript(true);
   }, []);
-
-  const path =
-    'https://wwwimages2.adobe.com/content/dam/acom/en/feature-details/acrobat/axi/pdfs/create-forms-sample.pdf';
-  // const path =
-  //   'https://drive.google.com/uc?id=1v2XpLCamAP0FV132WwD30tDZPgEqpV7E&export=download';
-  // const path =
-  //   'https://www.antennahouse.com/hubfs/xsl-fo-sample/pdf/axf-form-field-1.pdf';
 
   React.useEffect(() => {
     if (Platform.OS === 'android') {
@@ -67,18 +68,39 @@ const App = () => {
     }
   };
 
+  const exportWithAnnotList = async () => {
+    const xfdfWithAnnotList = await viewer.current.exportAnnotations({
+      annotList,
+    });
+    console.log('xfdfWithAnnotList', xfdfWithAnnotList);
+  };
+
+  const exportAll = async () => {
+    const xfdf = await viewer.current.exportAnnotations();
+    console.log('xfdf', xfdf);
+  };
+
+  const path = 'https://www.africau.edu/images/default/sample.pdf';
+
   return (
-    <DocumentView
-      document={path}
-      showLeadingNavButton={true}
-      ref={viewer}
-      leadingNavButtonIcon={
-        Platform.OS === 'ios'
-          ? 'ic_close_black_24px.png'
-          : 'ic_arrow_back_white_24dp'
-      }
-      onLeadingNavButtonPressed={onLeadingNavButtonPressed}
-    />
+    <SafeAreaView style={{flex: 1}}>
+      <Button title="Export with annotList" onPress={exportWithAnnotList} />
+      <Button title="Export all" onPress={exportAll} />
+      <DocumentView
+        document={path}
+        showLeadingNavButton={true}
+        ref={viewer}
+        leadingNavButtonIcon={
+          Platform.OS === 'ios'
+            ? 'ic_close_black_24px.png'
+            : 'ic_arrow_back_white_24dp'
+        }
+        onLeadingNavButtonPressed={onLeadingNavButtonPressed}
+        onAnnotationChanged={({action, annotations}) => {
+          setAnnotList(annotList => [...annotList, ...annotations]);
+        }}
+      />
+    </SafeAreaView>
   );
 };
 
